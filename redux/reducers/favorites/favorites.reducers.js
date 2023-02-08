@@ -13,6 +13,15 @@ const favoritesReducer = (state = initialState, action) => {
             movieList: [...state.movieList, action.payload],
             movieNumber: state.movieNumber + 1
          }
+
+        case types.DELETE_FAVORITE_MOVIE:
+            console.log(state, action, 'tttttt')
+
+            return {
+                ...state,
+                movieList: state.movieList.filter(movie => movie.imdbID !== action.payload.imdbID),
+                movieNumber: state.movieNumber - 1
+            }
         
         default:
            return state

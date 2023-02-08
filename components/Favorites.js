@@ -24,10 +24,11 @@ function Favorites() {
           renderItem={({item}) => {
             return (
               <View>
+                <Image source={{uri: item.Poster}} style={styles.image}/>
                 <Text>Item id: {item.id}, imdb id: {item.imdbID}</Text>
                 <Text>Title: {item.Title}</Text>
                 <Text>Year: {item.Year}</Text>
-                <Image source={{uri: item.Poster}} style={styles.image}/>
+                <Button title='delete movie' onPress={() => dispatch({type: 'DELETE_FAVORITE_MOVIE', payload: item})}/>
               </View>
             )
           }}
